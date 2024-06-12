@@ -3,4 +3,48 @@ body{
     background-image: url("images/space.png");
     background-repeat: no-repeat;
     background-size: cover;
+
+
+}
+.container{
+    background-color: #b9c7da;
+    font-size: 16px;
+    border-radius: 3px;
+    box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+    color: black;
+    min-height: 100vh;
+
+}
+.task-area{
+    font-size: 30px;
+    border: 1px solid lightgrey;
+    margin-top: 2em;
+}
+#under-line{
+    height: 4px;
+    background-color: pink;
+    position: absolute;
+    width:100px;
+    left: 0px;
+    top:100px;
+    padding: 0px;
+
+}
+.button-area{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+.button-area button {
+    margin:1em;
+}
+
+.task-tabs{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    position: relative;
+}
+.task-tabs div{
+    padding:1em;
 }
