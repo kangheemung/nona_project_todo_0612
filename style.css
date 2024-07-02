@@ -44,6 +44,27 @@ body{
     padding: 0px;
 
 }
+@media only screen and (max-width: 768px) {
+    /* Adjust styles for medium-sized smartphones */
+
+    .container {
+        font-size: 16px; /* Increase font size for better readability */
+    }
+
+    .title {
+        font-size: 24px; /* Enlarge title font size for emphasis */
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+
+    .task-area {
+        font-size: 22px; /* Increase font size for task area */
+        margin-top: 1.5em; /* Adjust margin for better spacing */
+    }
+
+    .button-area button {
+        margin: 0.7em; /* Update button margin for a slightly larger touch area */
+    }
+}
 
 
 
