@@ -6,16 +6,28 @@ body{
 
 
 }
-.container{
-    background-color: #ffffff;
+.dark-mode .container{
+    background-color: #333; /* 背景色をダークに設定 */
+    color: #fff; /* テキストカラーを白色に設定 */
+    background-color: rgb(46, 45, 45);
+    font-size: 16px;
+    border-radius: 3px;
+    box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
+    padding: 16px;
+}
+.light-mode .container{
+    color:   #333;/* テキストカラーを白色に設定 */
+    background-color: #fff;
     font-size: 16px;
     border-radius: 3px;
     box-shadow: -5px -5px 10px 0px rgba(255, 255, 255, 0.5), 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
     background-color: rgb(248, 248, 248);
-    color: black;
+    color: #000000;
     min-height: 100vh;
     padding: 16px;
 }
+
 .title{
     margin-top: 16px;
     text-align: center;
@@ -27,20 +39,42 @@ body{
 }
 
 .task {
+
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
     }
+.task_done{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-decoration: line-through;
+    margin-bottom: 10px;
+}
+.task_text{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
 
+}
+.image{ width: 70px;
+}
+.taskzoon{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+}
 #under-line{
     height: 4px;
     background-color: blueviolet;
     position: absolute;
     width:100px;
     left: 0px;
-    top:100px;
+    top:76px;
     padding: 0px;
 
 }
