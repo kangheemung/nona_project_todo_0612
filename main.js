@@ -61,7 +61,6 @@ function addTask(){
             if(taskList[i].isComplete === true){
                 resultHTML+=
                 `<div class = "taskzoon">
-            
                     <div class="task_done">${taskList[i].taskContent}</div>
                     <div>
                         <button onclick="checkTask('${taskList[i].id}')">
@@ -126,11 +125,18 @@ function deleteTask(id) {
 }
 let darkModeEnabled = false;
 const toggleDarkModeButton = document.getElementById("toggle-dark-mode");
+const modeIcon = document.querySelector("#toggle-dark-mode img");
 
 toggleDarkModeButton.addEventListener("click", function() {
     darkModeEnabled = !darkModeEnabled;
+    if (darkModeEnabled) {
+        modeIcon.src = "images/moon.png"; // ダークモード用のアイコンに変更
+    } else {
+        modeIcon.src = "images/sun.png"; // ライトモード用のアイコンに変更
+    }
     applyDarkMode(darkModeEnabled);
 });
+
 
 function applyDarkMode(enabled) {
     if (enabled) {
@@ -141,5 +147,6 @@ function applyDarkMode(enabled) {
         document.body.classList.remove("dark-mode"); // ダークモードクラスを削除
     }
 }
+
 
 

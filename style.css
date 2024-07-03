@@ -68,6 +68,8 @@ body{
     align-items: center;
     background-color: lightgrey;
 }
+
+
 #under-line{
     height: 4px;
     background-color: blueviolet;
@@ -78,10 +80,35 @@ body{
     padding: 0px;
 
 }
+.dark-mode{text-align: right;}
+.input-area{text-align: center;}
+#toggle-dark-mode img {
+    width: 30px; /* 幅を指定 */
+    height: auto; /* 高さは自動調整 */
+    background-color: #fff;
+    border-radius: 50%; /* 円形に表示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 @media only screen and (max-width: 768px) {
     /* Adjust styles for medium-sized smartphones */
+    .image{ width: 50px;
+    }
+#under-line{
+    height: 4px;
+    background-color: blueviolet;
+    position: absolute;
+    width:60px;
+    left: 0px;
+    top: 8vh;
+    padding: 0px;
 
+}
     .container {
+        width: 80%;
         font-size: 16px; /* Increase font size for better readability */
     }
 
@@ -91,27 +118,28 @@ body{
     }
 
     .task-area {
-        font-size: 22px; /* Increase font size for task area */
+        font-size: 16px; /* Increase font size for task area */
         margin-top: 1.5em; /* Adjust margin for better spacing */
     }
 
     .button-area button {
         margin: 0.7em; /* Update button margin for a slightly larger touch area */
     }
+    #toggle-dark-mode img {
+      width: 26px;
+
+    }
+    .button-area button {
+        margin:1em;
+    }
+    
+    .task-tabs{
+        display: flex;
+        border-bottom: 1px solid lightgrey;
+        position: relative;
+    }
+    .task-tabs div{
+        padding:1em;
+    }
 }
 
-
-
-
-.button-area button {
-    margin:1em;
-}
-
-.task-tabs{
-    display: flex;
-    border-bottom: 1px solid lightgrey;
-    position: relative;
-}
-.task-tabs div{
-    padding:1em;
-}
