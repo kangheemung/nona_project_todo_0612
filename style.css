@@ -68,7 +68,14 @@ body{
     align-items: center;
     background-color: lightgrey;
 }
-
+.task-tabs{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    position: relative;
+}
+.task-tabs div{
+    padding:1em;
+}
 
 #under-line{
     height: 4px;
@@ -76,7 +83,7 @@ body{
     position: absolute;
     width:100px;
     left: 0px;
-    top:76px;
+    top:10vh;
     padding: 0px;
 
 }
@@ -93,18 +100,15 @@ body{
 
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 468px) {
     /* Adjust styles for medium-sized smartphones */
     .image{ width: 50px;
     }
 #under-line{
     height: 4px;
-    background-color: blueviolet;
-    position: absolute;
     width:60px;
-    left: 0px;
-    top: 8vh;
-    padding: 0px;
+    top: 7lvh;
+
 
 }
     .container {
