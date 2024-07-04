@@ -6,6 +6,16 @@ body{
 
 
 }
+#under-line {
+    height: 4px;
+    background-color: blueviolet;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    left: calc(50% - 30px); /* 中央に配置 */
+    top: 55px;
+}
+
 .dark-mode .container{
     background-color: #333; /* 背景色をダークに設定 */
     color: #fff; /* テキストカラーを白色に設定 */
@@ -33,6 +43,7 @@ body{
     text-align: center;
 }
 .task-area{
+    text-align: center;
     font-size: 30px;
     border: 1px solid lightgrey;
     margin-top: 2em;
@@ -70,47 +81,61 @@ body{
 }
 .task-tabs{
     display: flex;
-    border-bottom: 1px solid lightgrey;
+    justify-content: center;
+    border-bottom: 3px solid lightgrey;
     position: relative;
+    text-align: center;
+    padding: auto;
+    height: 100px;
 }
 .task-tabs div{
-    padding:1em;
+    cursor: pointer;
+    margin: 10px 10px;
+    padding: 15px;
 }
 
 #under-line{
     height: 4px;
     background-color: blueviolet;
     position: absolute;
-    width:100px;
+    width:150px;
     left: 0px;
-    top:10vh;
+    top: 84px;
     padding: 0px;
 
 }
-.dark-mode{text-align: right;}
-.input-area{text-align: center;}
+
+.dark-mode {
+    text-align: right;
+}
+#toggle-dark-mode {
+    position: absolute;
+    top: 1em; /* Adjust the top position as needed */
+    right: 8em; /* Align to the right side with some space */
+}
+
+.input-area{
+    text-align: center;
+}
 #toggle-dark-mode img {
+    width: 30px; /* Set the width of the dark mode toggle button */
+    height: auto; /* Automatically adjust the height */
+    border-radius: 50%; /* Display as a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sun{
     width: 30px; /* 幅を指定 */
     height: auto; /* 高さは自動調整 */
     background-color: #fff;
     border-radius: 50%; /* 円形に表示 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
-
 @media only screen and (max-width: 468px) {
     /* Adjust styles for medium-sized smartphones */
     .image{ width: 50px;
     }
-#under-line{
-    height: 4px;
-    width:60px;
-    top: 7lvh;
-
-
-}
+  
     .container {
         width: 80%;
         font-size: 16px; /* Increase font size for better readability */
@@ -129,14 +154,19 @@ body{
     .button-area button {
         margin: 0.7em; /* Update button margin for a slightly larger touch area */
     }
-    #toggle-dark-mode img {
-      width: 26px;
 
-    }
     .button-area button {
         margin:1em;
     }
+    #toggle-dark-mode {
+        position: absolute;
+        top: 1em; /* Adjust the top position as needed */
+        right:4em; /* Align to the right side with some space */
+    }
     
+    .input-area{
+        text-align: center;
+    }
     .task-tabs{
         display: flex;
         border-bottom: 1px solid lightgrey;
