@@ -3,18 +3,28 @@ body{
     background-image: url("images/space.png");
     background-repeat: no-repeat;
     background-size: cover;
-
-
 }
 #under-line {
     height: 4px;
-    background-color: blueviolet;
+    background-color: rgb(73, 73, 73);
     position: absolute;
     text-align: center;
-    width: 60px;
-    left: calc(50% - 30px); /* 中央に配置 */
-    top: 55px;
+    width: 75vw;
+    top: 65px;
 }
+.dark-mode #under-line {
+    height: 4px;
+    background-color: rgb(229, 229, 229);
+    position: absolute;
+    text-align: center;
+    width: 90vw;
+    top: 65px;
+}
+.dark-mode .image_delete {
+        filter: invert(100%);
+        color: rgb(206, 255, 153);
+    }
+
 
 .dark-mode .container{
     background-color: #333; /* 背景色をダークに設定 */
@@ -26,6 +36,7 @@ body{
     min-height: 100vh;
     padding: 16px;
 }
+
 .light-mode .container{
     color:   #333;/* テキストカラーを白色に設定 */
     background-color: #fff;
@@ -36,6 +47,20 @@ body{
     color: #000000;
     min-height: 100vh;
     padding: 16px;
+}
+@keyframes scaleTitle {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .animateTitle {
+    animation: scaleTitle 0.5s;
+  }
+
+
+.slide-in-animation {
+    animation: slideIn 0.5s forwards;
 }
 
 .title{
@@ -50,7 +75,6 @@ body{
 }
 
 .task {
-
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -70,7 +94,11 @@ body{
     margin-bottom: 10px;
 
 }
-.image{ width: 70px;
+.image{ 
+    width: 70px;
+}
+.image_delete{
+    width: 70px;
 }
 .taskzoon{
     display: flex;
@@ -79,31 +107,23 @@ body{
     align-items: center;
     background-color: lightgrey;
 }
+.underline {
+    transition: all 0.5s;
+}
 .task-tabs{
     display: flex;
     justify-content: center;
     border-bottom: 3px solid lightgrey;
     position: relative;
     text-align: center;
-    padding: auto;
-    height: 100px;
+    padding: 10px;
 }
 .task-tabs div{
     cursor: pointer;
-    margin: 10px 10px;
-    padding: 15px;
+    width: 300px;
 }
 
-#under-line{
-    height: 4px;
-    background-color: blueviolet;
-    position: absolute;
-    width:150px;
-    left: 0px;
-    top: 84px;
-    padding: 0px;
 
-}
 
 .dark-mode {
     text-align: right;
@@ -133,14 +153,17 @@ body{
 }
 @media only screen and (max-width: 468px) {
     /* Adjust styles for medium-sized smartphones */
-    .image{ width: 50px;
+    .image .image_delete{ width: 50px;
     }
-  
     .container {
         width: 80%;
         font-size: 16px; /* Increase font size for better readability */
     }
-
+    #under-line {
+        width: 73vw; /* Adjust the width of under-line */
+       top:43px;
+    }
+    
     .title {
         font-size: 24px; /* Enlarge title font size for emphasis */
         margin-top: 15px; /* Adjust margin for better spacing */
@@ -166,14 +189,6 @@ body{
     
     .input-area{
         text-align: center;
-    }
-    .task-tabs{
-        display: flex;
-        border-bottom: 1px solid lightgrey;
-        position: relative;
-    }
-    .task-tabs div{
-        padding:1em;
     }
 }
 

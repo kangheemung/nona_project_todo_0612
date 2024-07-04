@@ -39,33 +39,53 @@
     let filterList = [];
     let add_button = document.getElementById("add_button");
     let under_Line = document.getElementById("under-line")
+    let title = document.querySelector('.title h1');
+    let clickCount = 0;
     console.log(taskInput);
 
     function underline(e) {
-        under_Line.style.transition = "all 0.5s"; 
-        under_Line.style.left = e.offsetLeft + "px";
-        under_Line.style.width = e.offsetWidth + "px";
-        under_Line.style.top = e.offsetTop + e.offsetHeight + "px";
-      }
-      taps.forEach((task) => {
-        task.addEventListener("click", function(e) {
+        // Remove any existing active class
+        under_Line.classList.remove('underline-active');
+        // Add the 'underline' class to apply transition
+        under_Line.classList.add('underline');
+        // Set the left, width, and top properties
+        under_Line.style.left = e.offsetLeft + 'px';
+        under_Line.style.width = e.offsetWidth -3 + 'px';
+        under_Line.style.top = e.offsetTop + e.offsetHeight +8 + 'px';
+    }
+
+    // Call the underline function when a tab is clicked
+    taps.forEach((task) => {
+        task.addEventListener('click', function(e) {
             underline(e.target);
         });
     });
-     add_button.addEventListener("click",addTask);
+
+    //todo애니메이션 작동
+    function addTaskWithAnimation() {
+        if (taskInput.value.trim() !== "") { // 入力がある場合のみ実行
+            addTask();
+            title.classList.add('animateTitle');
+        }
+    }
+    // Event listener for button click to add task with animation on each click
+    add_button.addEventListener("click", function() {
+        addTaskWithAnimation();
+    });
      for(let i = 1; i< taps.length; i++){
         taps[i].addEventListener("click",function(e){
+            addTaskWithAnimation();
             filter(e);
         });
     }
-
     taskInput.addEventListener("keypress", function(e) {
         if (e.key === "Enter") {
+            addTaskWithAnimation() ;
             addTask();
         }
+
     });
 
-    console.log(taps)
 function addTask(){
     let taskContent = taskInput.value.trim(); // Trim any leading or trailing whitespace
 
@@ -82,6 +102,7 @@ function addTask(){
         console.log("cliked")
         console.log(taskList)
         render();
+        title.classList.add('animateTitle');
         taskInput.value = "";
     }
 //UI부분
@@ -111,7 +132,7 @@ function addTask(){
                     <div class="task_done">${list[i].taskContent}</div>
                     <div>
                         <img onclick="checkTask('${list[i].id}')" class= "image" src="images/free-icon-checking.png" >
-                        <img onclick="deleteTask('${list[i].id}')" class= "image" src="images/delete.png" >
+                        <img onclick="deleteTask('${list[i].id}')" class= "image_delete" src="images/delete.png" >
                     </div>
                 </div>`;
             }else{
@@ -120,7 +141,7 @@ function addTask(){
                     <div class = "task_text">${list[i].taskContent}</div>
                     <div>
                         <img onclick="checkTask('${list[i].id}')" class= "image" src="images/free-icon.png" >
-                        <img onclick="deleteTask('${list[i].id}')" class= "image" src="images/delete.png" >
+                        <img onclick="deleteTask('${list[i].id}')" class= "image_delete" src="images/delete.png" >
                     </div>
                 </div>`;
         }
@@ -145,13 +166,16 @@ function checkTask(id) {
             if (mode === "Done" && taskList.find(task => task.id === id).isComplete === false) {
 
                 mode = "All"; // 모든 모드로 변경
+            
                 render(taskList);
+                applyUnderline();
             } else if (mode === "Not_Done") {
                 filterList = taskList.filter(task => !task.isComplete);
                 render(filterList);
             }else if (mode === "All" && taskList.isComplete === false) {
 
                 render(taskList);
+                 applyUnderline();
             }
 
             //true변환!list[i].isComplete;스위치같은기능
@@ -186,13 +210,13 @@ function filter(e){
         console.log("進行中",filterList);
         filterList = taskList.filter(task => !task.isComplete);
         render(filterList);
-        render();
+        
     } else if (mode === "Done"){
         //끝나는케이스
          // task.isComplete=ture
          filterList = taskList.filter(task => task.isComplete);
          render(filterList);
-         render();
+      
     }
 }
 function deleteTask(id) {
