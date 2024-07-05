@@ -162,7 +162,7 @@ for( let i=0; i < taskList.length; i++){
         taskList[i].isComplete = !taskList[i].isComplete;
 
         if (mode === "Done" && !taskList[i].isComplete) {
-            mode = "All"; // Switch mode back to All if the task is marked incomplete in Done mode
+            mode = "Done"; // Switch mode back to All if the task is marked incomplete in Done mode
         }
         if (mode === "Not_Done") {
             filterList = taskList.filter(task => !task.isComplete);
